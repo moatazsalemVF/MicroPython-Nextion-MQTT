@@ -16,7 +16,7 @@ def transmit(single):
   elif single["t"] == "int":
     c = str(single["f"]+"."+single["p"]+"="+str(single["v"])).encode()+bytearray([255]*3)
   elif single["t"] == "cmd":
-    c = str(single["cmd"]).encode()+bytearray([255]*3)
+    c = str(single["c"]).encode()+bytearray([255]*3)
   uart.write(c)
 
 def getCommand():
@@ -32,5 +32,5 @@ def writeraw(cmd):
 def dims(val):
   cmd = {}
   cmd["t"] = "cmd"
-  cmd["cmd"] = "dims="+str(val)
+  cmd["c"] = "dims="+str(val)
   transmit(cmd)
