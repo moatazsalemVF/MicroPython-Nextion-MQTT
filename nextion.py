@@ -10,12 +10,14 @@ def connect(cnf):
   
 def transmit(single):
   global uart
+  c = None
   if single["t"] == "str":
-    uart.write(str(single["f"]+"."+single["p"]+"=\""+single["v"]+"\"").encode()+bytearray([255]*3))
+    c = str(single["f"]+"."+single["p"]+"=\""+single["v"]+"\"").encode()+bytearray([255]*3)
   elif single["t"] == "int":
-    uart.write(str(single["f"]+"."+single["p"]+"="+str(single["v"])).encode()+bytearray([255]*3))
+    c = str(single["f"]+"."+single["p"]+"="+str(single["v"])).encode()+bytearray([255]*3)
   elif single["t"] == "cmd":
-    uart.write(str(single["cmd"]).encode()+bytearray([255]*3))
+    c = str(single["cmd"]).encode()+bytearray([255]*3)
+  uart.write(c)
 
 def getCommand():
   cmd=uart.readline()
