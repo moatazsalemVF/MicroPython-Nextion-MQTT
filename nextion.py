@@ -17,7 +17,7 @@ def transmit(single):
     c = str(single["f"]+"."+single["p"]+"="+str(single["v"])).encode()+bytearray([255]*3)
   elif single["t"] == "cmd":
     c = str(single["c"]).encode()+bytearray([255]*3)
-  uart.write(c)
+  writeraw(c)
 
 def getCommand():
   cmd=uart.readline()
