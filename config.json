@@ -1,0 +1,40 @@
+{
+  "network": {
+    "ip": "172.27.227.104",
+    "mask": "255.255.255.0",
+    "gateway": "172.27.227.1",
+    "dns": "172.27.227.150"
+  },
+  "mqtt": {
+    "id": "ESP32_Client_Nextion",
+    "ssl": false,
+    "keepalive": 0,
+    "host": "172.27.227.150",
+    "user": "",
+    "pass": "",
+    "port": 1883,
+    "topics": [
+      "/mqtt/nextion"
+    ],
+    "isAlive": {
+      "topic": "/mqtt/nextion/isalive",
+      "payload": "heartbeat"
+    },
+    "start": {
+      "topic": "/mqtt/nextion/start",
+      "payload": "started"
+    },
+    "input": {
+      "topic": "/mqtt/nextion/out"
+    }
+  },
+  "wifi": {
+    "ssid": "xxxxxxxxxx",
+    "pass": "xxxxxxxxxx"
+  },
+  "uart": {
+    "tx": 17,
+    "rx": 16,
+    "br": 115200
+  }
+}
