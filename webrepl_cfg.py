@@ -1,1 +1,1 @@
-PASS = 'XXXXXXX'
+PASS = 'xyz'
