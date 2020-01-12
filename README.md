@@ -147,3 +147,15 @@ a method to send raw data to the nextion display
 
 ### nextion.dims
 a method to control the brightness of the Nextion display, valid value is 0-100
+
+### Complete Example
+    import nextion
+    import json
+
+    f = open('config.json')
+    cnf = json.loads(f.read())
+    f.close()
+    cmd={'v': '1001', 'p': 'bco', 't': 'int', 'f': 'page1'}
+
+    nextion.connect(cnf)
+    nextion.transmit(cmd)
